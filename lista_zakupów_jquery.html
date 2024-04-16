@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <style>
+      * {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        box-sizing: border-box;
+        margin: 0px;
+      }
+      body {
+        background-color: cornsilk;
+      }
+      #page {
+        padding: 15px;
+      }
+      ul {
+        padding-left: 0px;
+      }
+      li {
+        text-decoration: none;
+        list-style: none;
+        padding: 15px;
+        border: 1px solid black;
+
+        background-color: blanchedalmond;
+        margin-bottom: 5px;
+        font-weight: 600;
+      }
+      i.fa-square-check {
+        color: green;
+        margin-right: 5px;
+      }
+      i.fa-trash {
+        float: right;
+        color: red;
+      }
+      li:hover {
+        background-color: burlywood;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <title>Lista zakupów</title>
+  </head>
+  <body>
+    <div id="page">
+      <h1 id="naglowek">Lista zakupów</h1>
+      <h2 id="produktyspozywcze"></h2>
+      <ul>
+        <li>
+          <i class="fa-solid fa-square-check"></i>Pasztet
+          <i class="fa fa-trash"></i><i class="fa"></i>
+        </li>
+        <li>
+          <i class="fa-solid fa-square-check"></i>Miód
+          <i class="fa fa-trash"></i>
+        </li>
+        <li>
+          <i class="fa-solid fa-square-check"></i>Kiełbasa
+          <i class="fa fa-trash"></i>
+        </li>
+        <li>
+          <i class="fa-solid fa-square-check"></i>Mleko
+          <i class="fa fa-trash"></i>
+        </li>
+      </ul>
+      <input id="nowy" type="text" />
+      <button id="dodaj">dodaj</button>
+    </div>
+
+    <script>
+      $("button").click(function () {
+        let $nowy = $("#nowy").val();
+        $("ul").append(
+          "<li><i class='fa-solid fa-square-check'></i>" +
+            $nowy +
+            "<i class='fa fa-trash'></li>"
+        );
+      });
+      $("ul").on("click", "li i.fa-trash", function () {
+        $(this).parent().remove();
+      });
+    </script>
+  </body>
+</html>
